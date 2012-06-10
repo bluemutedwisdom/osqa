@@ -17,3 +17,12 @@ chown -R root:www-data $WEBROOT
 chown -R www-data:www-data $WEBROOT/log
 chown -R www-data:www-data $WEBROOT/forum/upfiles
 
+# apply osqa overlay
+cp -TdR $SRC/osqa.overlay $WEBROOT
+rm -rf $SRC/osqa.overlay
+
+# apache configuration
+a2dissite default
+a2ensite osqa
+
+
