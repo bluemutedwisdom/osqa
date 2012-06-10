@@ -1,0 +1,5 @@
+#!/bin/bash -e
+# send osqa email alerts
+
+su www-data -c "/var/www/osqa/manage.py send_email_alerts"
+
