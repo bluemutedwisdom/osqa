@@ -1,0 +1,8 @@
+#!/bin/bash -e
+# set osqa domain to serve
+
+. /etc/default/inithooks
+
+[ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
+$INITHOOKS_PATH/bin/osqa.py --domain="$APP_DOMAIN"
+
