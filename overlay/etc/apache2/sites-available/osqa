@@ -1,0 +1,28 @@
+NameVirtualHost *:80
+NameVirtualHost *:443
+
+WSGIScriptAlias / /var/www/osqa/wsgi_handler.py
+WSGIDaemonProcess django processes=1 threads=3
+WSGIProcessGroup django
+
+<VirtualHost *:80>
+    UseCanonicalName Off
+    ServerAdmin  webmaster@localhost
+</VirtualHost>
+
+<VirtualHost *:443>
+    SSLEngine on
+    SSLCertificateFile /etc/ssl/certs/cert.pem
+    ServerAdmin  webmaster@localhost
+</VirtualHost>
+
+Alias /m/ /var/www/osqa/forum/skins/
+<Location "/m/">
+    SetHandler None
+</Location>
+
+Alias /upfiles/ /var/www/osqa/forum/upfiles/
+<Location "/upfiles/">
+    SetHandler None
+</Location>
+
