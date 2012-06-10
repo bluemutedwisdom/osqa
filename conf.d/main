@@ -1,0 +1,11 @@
+#!/bin/sh -ex
+
+DB_NAME=osqa
+DB_USER=osqa
+DB_PASS=$(mcookie)
+
+DOMAIN=www.example.com
+
+SRC=/usr/local/src
+WEBROOT=/var/www/osqa
+
