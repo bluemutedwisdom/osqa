@@ -48,6 +48,28 @@ chmod 640 $CONF
 cd $WEBROOT
 python manage.py syncdb --all --noinput
 
+# tweak settings
+TWEAKS=$WEBROOT/tweaks.py
+cat>>$TWEAKS<<EOF
+import os, settings
+os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+from forum.models import KeyValue
+for key in ['SIDEBAR_UPPER_SHOW', 'SIDEBAR_LOWER_SHOW']:
+    k, created = KeyValue.objects.get_or_create(key=key)
+    k.value = False
+    k.save()
+
+k, created = KeyValue.objects.get_or_create(key="USE_CUSTOM_FOOTER")
+k.value = True
+k.save()
+
+k, created = KeyValue.objects.get_or_create(key="EMAIL_HOST")
+k.value = "localhost"
+k.save()
+EOF
+python $TWEAKS
+rm $TWEAKS
+
 # stop services
 /etc/init.d/mysql stop
 
