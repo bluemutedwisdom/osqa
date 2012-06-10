@@ -44,6 +44,10 @@ sed -i "s|DATABASE_ENGINE.*|DATABASE_ENGINE = 'mysql'|" $CONF
 sed -i "s|APP_URL.*|APP_URL = 'http://$DOMAIN'|" $CONF
 chmod 640 $CONF
 
+# populate database
+cd $WEBROOT
+python manage.py syncdb --all --noinput
+
 # stop services
 /etc/init.d/mysql stop
 
