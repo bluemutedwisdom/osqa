@@ -70,6 +70,13 @@ EOF
 python $TWEAKS
 rm $TWEAKS
 
+# convenience and cleanup
+chmod +x $WEBROOT/manage.py
+rm -rf $WEBROOT/cron
+rm $WEBROOT/osqa.wsgi.dist
+rm $WEBROOT/rmpyc
+rm $WEBROOT/log/django.osqa.log
+
 # stop services
 /etc/init.d/mysql stop
 
