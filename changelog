@@ -1,0 +1,33 @@
+turnkey-osqa-12.0 (1) turnkey; urgency=low
+
+  * Initial public release of TurnKey OSQA.
+
+  * Set OSQA domain to serve on firstboot (convenience).
+
+  * Regenerates all secrets during installation / firstboot (security).
+
+  * Includes hourly cron job to trigger email alerts (convenience).
+
+  * MySQL related:
+
+    - Set MySQL root password on firstboot (convenience, security).
+    - Force MySQL to use Unicode/UTF8.
+
+  * SSL support out of the box.
+
+  * Includes postfix MTA (bound to localhost) for sending of email (e.g.
+    password recovery). Also includes webmin postfix module for convenience.
+
+  * Major component versions
+
+    osqa                0.9.0-beta3 (upstream archive)
+    python-django       1.2.3-3+squeeze2
+    apache2             2.2.16-6+squeeze7
+    libapache2-mod-wsgi 3.3-2
+    mysql-server        5.1.63-0+squeeze1
+
+  * Note: Please refer to turnkey-core's changelog for changes common to all
+    appliances. Here we only describe changes specific to this appliance.
+
+ -- Alon Swartz <alon@turnkeylinux.org>  Wed, 01 Aug 2012 08:00:00 +0200
+
