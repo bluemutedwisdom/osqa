@@ -26,3 +26,8 @@ Alias /upfiles/ /var/www/osqa/forum/upfiles/
     SetHandler None
 </Location>
 
+Alias /admin_media/ /usr/share/pyshared/django/contrib/admin/media/
+<Location "/admin_media/">
+    SetHandler None
+</Location>
+
