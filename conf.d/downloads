@@ -1,0 +1,10 @@
+#!/bin/bash -ex
+
+dl() {
+    [ "$FAB_HTTP_PROXY" ] && PROXY="--proxy $FAB_HTTP_PROXY"
+    cd $2; curl -L -f -O $PROXY $1; cd -
+}
+
+VERSION="fantasy-island-0.9.0-beta3.tar.gz"
+dl http://www.osqa.net/releases/${VERSION} /usr/local/src
+
