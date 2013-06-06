@@ -4,7 +4,7 @@ turnkey-osqa-12.1 (1) turnkey; urgency=low
 
     - Added apache alias for /admin_media/ (bugfix).
         
-  * Hardcoded component versions:
+  * Upstream source component versions:
 
     osqa                0.9.0-beta3
 
