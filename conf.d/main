@@ -36,13 +36,8 @@ $MYSQL_ADMIN create $DB_NAME --default-character-set=utf8;
 $MYSQL_BATCH --execute "grant all privileges on $DB_NAME.* to $DB_USER@localhost identified by '$DB_PASS'; flush privileges;"
 
 CONF=$WEBROOT/settings_local.py
-mv $WEBROOT/settings_local.py.dist $CONF
-sed -i "s|DATABASE_NAME.*|DATABASE_NAME = '$DB_NAME'|" $CONF
-sed -i "s|DATABASE_USER.*|DATABASE_USER = '$DB_USER'|" $CONF
-sed -i "s|DATABASE_PASSWORD.*|DATABASE_PASSWORD = '$DB_PASS'|" $CONF
-sed -i "s|DATABASE_ENGINE.*|DATABASE_ENGINE = 'mysql'|" $CONF
+sed -i "s|PASSWORD.*|PASSWORD\': \'$DB_PASS\',|" $CONF
 sed -i "s|APP_URL.*|APP_URL = 'http://$DOMAIN'|" $CONF
-chmod 640 $CONF
 
 # populate database
 cd $WEBROOT
@@ -74,6 +69,7 @@ rm $TWEAKS
 chmod +x $WEBROOT/manage.py
 rm -rf $WEBROOT/cron
 rm $WEBROOT/osqa.wsgi.dist
+rm $WEBROOT/settings_local.py.dist
 rm $WEBROOT/rmpyc
 rm $WEBROOT/log/django.osqa.log
 
