@@ -31,7 +31,7 @@ NEW="def get_db_prep_value(self, value, connection=None, prepared=False):"
 sed -i "s|$OLD|$NEW|" $WEBROOT/forum/models/utils.py
 
 # apache configuration
-a2dissite default
+a2dissite 000-default
 a2ensite osqa
 
 # start services
