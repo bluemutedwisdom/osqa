@@ -1,4 +1,4 @@
-COMMON_CONF = apache-credit postfix-local apache-vhost
+COMMON_CONF = apache-credit apache-vhost
 
 CREDIT_ANCHORTEXT = OSQA Appliance
 

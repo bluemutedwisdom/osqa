@@ -17,6 +17,3 @@ python-openid
 python-django-south
 
 ipython
-
-postfix
-webmin-postfix
